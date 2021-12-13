@@ -1,2 +1,7 @@
-package com.zup.Amazup.Autor.dto;public class AutorDTO {
+package com.zup.Amazup.Autor.dto;
+
+public class AutorDTO {
+
+    private int id;
+
 }
