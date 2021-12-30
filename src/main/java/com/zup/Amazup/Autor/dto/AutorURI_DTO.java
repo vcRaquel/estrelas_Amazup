@@ -2,7 +2,7 @@ package com.zup.Amazup.Autor.dto;
 
 import java.net.URI;
 
-public class AutorDTO {
+public class AutorURI_DTO {
 
     public URI uri;
     public String nome;
