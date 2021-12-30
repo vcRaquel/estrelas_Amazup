@@ -6,6 +6,8 @@ import com.zup.Amazup.Livro.customExceptions.LivroJaCadastradoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LivroService {
     @Autowired
@@ -18,6 +20,15 @@ public class LivroService {
         Livro livroObjeto = livroRepository.save(livro);
 
         return livroObjeto;
+    }
+
+    public Livro buscarLivroPorId(int id){
+        Optional<Livro> livroOptional = livroRepository.findById(id);
+
+        if (livroOptional.isEmpty()){
+            throw new RuntimeException();
+        }
+        return livroOptional.get();
     }
 
 }
