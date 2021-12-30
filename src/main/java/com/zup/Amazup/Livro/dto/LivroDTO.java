@@ -4,12 +4,21 @@ import com.zup.Amazup.Autor.Autor;
 import com.zup.Amazup.Autor.dto.AutorURI_DTO;
 import com.zup.Amazup.Livro.enuns.Genero;
 
-public class LivroEntradaDTO {
+public class LivroDTO {
 
+    private int id;
     private String nome;
     private AutorURI_DTO autor;
     private double preco;
     private Genero genero;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
