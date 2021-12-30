@@ -1,2 +1,4 @@
-package com.zup.Amazup.Livro.customExceptions;public class LivroJaCadastradoException {
+package com.zup.Amazup.Livro.customExceptions;
+
+public class LivroJaCadastradoException extends RuntimeException{
 }
