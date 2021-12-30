@@ -1,8 +1,10 @@
 package com.zup.Amazup.Livro.Controller;
 
+import com.zup.Amazup.Autor.dto.AutorURI_DTO;
 import com.zup.Amazup.Componentes.URIConstrutor;
 import com.zup.Amazup.Livro.Livro;
 import com.zup.Amazup.Livro.Service.LivroService;
+import com.zup.Amazup.Livro.dto.LivroDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +38,17 @@ public class LivroController {
         HashMap<String, URI> resposta = new HashMap<>();
         resposta.put("vitrine", enderecoVitrini);
         return resposta;
+    }
+
+    @GetMapping("/{id}")
+    public LivroDTO exibirLivro(@PathVariable int id){
+        Livro livro = livroService.buscarLivroPorId(id);
+        ModelMapper modelMapper = new ModelMapper();
+
+        LivroDTO livroDTO = modelMapper.map(livro, LivroDTO.class);
+        livroDTO.setAutor(new AutorURI_DTO());
+        livroDTO.getAutor().setUri(construtor.criarURI("/livros","" + livro.getAutor().getId()));
+        return livroDTO;
     }
 
 }

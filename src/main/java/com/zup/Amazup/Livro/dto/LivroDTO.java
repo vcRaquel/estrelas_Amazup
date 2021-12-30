@@ -8,6 +8,7 @@ public class LivroDTO {
 
     private int id;
     private String nome;
+    //para colocar a URI de autor como resposta foi criada uma classe com a URI e colocado como tipo do atributo autor
     private AutorURI_DTO autor;
     private double preco;
     private Genero genero;
